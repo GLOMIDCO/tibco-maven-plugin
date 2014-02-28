@@ -7,8 +7,11 @@
 			</implementation>
 			<configuration>
 				<phases>
+					<process-sources>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
+					</process-sources>
 					<package>
-						com.glomidco.maven.plugins:tibco-maven-plugin:package
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:package-projlib
 					</package>
 				</phases>
 			</configuration>
@@ -33,8 +36,11 @@
 			</implementation>
 			<configuration>
 				<phases>
+					<process-sources>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
+					</process-sources>
 					<package>
-						com.glomidco.maven.plugins:tibco-maven-plugin:package
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:package-ear
 					</package>
 				</phases>
 			</configuration>

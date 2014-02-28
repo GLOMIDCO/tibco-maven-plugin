@@ -27,12 +27,6 @@
 		<mavenPluginVersion>3.1</mavenPluginVersion>
 	</properties>
 
-	<!-- dependencyManagement> <dependencies> <dependency> <groupId>org.codehaus.plexus</groupId> 
-		<artifactId>plexus-component-annotations</artifactId> <version>1.5.5</version> 
-		</dependency> <dependency> <groupId>org.apache.maven.plugin-tools</groupId> 
-		<artifactId>maven-plugin-annotations</artifactId> <version>3.2</version> 
-		<scope>provided</scope> </dependency> </dependencies> </dependencyManagement -->
-
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -70,8 +64,6 @@
 			<artifactId>commons-exec</artifactId>
 			<version>1.2</version>
 		</dependency>
-		    <!-- dependency> <groupId>org.codehaus.plexus</groupId> <artifactId>plexus-component-annotations</artifactId> 
-			<version>1.5.5</version> </dependency -->
 	</dependencies>
 
 	<build>
