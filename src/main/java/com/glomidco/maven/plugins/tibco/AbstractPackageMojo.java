@@ -48,18 +48,18 @@ public abstract class AbstractPackageMojo extends AbstractMojo {
 		return outputDirectory;
 	}
 		
-	protected Collection<String> findTibcoBuilderResources(String type) throws MojoExecutionException {
+	protected Collection<File> findTibcoBuilderResources(String type) throws MojoExecutionException {
 		File tibcoBuildFolder = new File(getTibcoBuildDirectory() + tibcoBuilderFolder);
 
-		Collection<String> buildResources = new ArrayList<String>();
+		Collection<File> buildResources = new ArrayList<File>();
 		if (tibcoBuildFolder.exists() && tibcoBuildFolder.isDirectory()) {
-			for (String tibcoBuildResource : tibcoBuildFolder.list()) {
-				if (tibcoBuildResource.endsWith(type)) {
+			for (File tibcoBuildResource : tibcoBuildFolder.listFiles()) {
+				if (tibcoBuildResource.getName().endsWith(type)) {
 					buildResources.add(tibcoBuildResource);
 				}
 			}
 		} else {
-			throw new MojoExecutionException(Messages.getString("TibcoPackageMojo.nolbuilderfound", tibcoBuildFolder));
+			throw new MojoExecutionException(Messages.getString("TibcoPackageMojo.nobuilderfilesfound", tibcoBuildFolder));
 		}
 		return buildResources;
 	}
