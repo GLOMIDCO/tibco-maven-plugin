@@ -1,9 +1,14 @@
 package com.glomidco.maven.plugins.tibco;
 
+import java.io.File;
 import java.util.Collection;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.project.MavenProject;
+
+import com.glomidco.maven.plugins.tibco.command.DesignerCommandException;
+import com.glomidco.maven.plugins.tibco.command.LibBuilderCommand;
 
 /**
  * This class builds the Tibco BusinessWorks .ear
@@ -14,31 +19,46 @@ import org.apache.maven.plugin.MojoFailureException;
  * @goal package-projlib
  */
 public class TibcoPackageProjlibMojo extends AbstractPackageMojo {
+	/**
+	 * The maven project
+	 * 
+	 *  @parameter property="project"
+	 *  @required
+	 *  @read-only
+	 */
+	private MavenProject project;
+
+	/**
+	 * Directory which will contain the build project library
+	 * 
+	 * @parameter default-value="${project.build.directory}"
+	 * @required
+	 */
+	private File buildDirectory;
+	
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		Collection<String> libBuilderResources = findLibBuilderResources();
+		Collection<File> libBuilderResources = findLibBuilderResources();
 
-		hideLibraryResources();
-
-		for (String libBuilderResource : libBuilderResources) {
+		for (File libBuilderResource : libBuilderResources) {
 			createTibcoProjlib(libBuilderResource);
 		}
-
-		showLibraryResources();
-	}
-	
-	private void hideLibraryResources() {
-		getLog().info("Hiding library resources");
-	}
-	
-	private void showLibraryResources() {
-		getLog().info("Showing library resources");
 	}
 
-	private void createTibcoProjlib(String libBuilderResource) {
-    	getLog().info("Creating project library for: " + libBuilderResource);
+	private void createTibcoProjlib(File libBuilderResource) throws MojoExecutionException {
+    	getLog().info("Creating project library for: " + libBuilderResource.getAbsolutePath());
+    	
+    	String workingDir = project.getBasedir().getAbsolutePath();
+    	String uri = libBuilderResource.getAbsolutePath().substring(getTibcoBuildDirectory().getAbsolutePath().length());
+    	
+    	LibBuilderCommand command = new LibBuilderCommand(workingDir, uri, buildDirectory, null);
+    	try {
+    		command.execute();
+    	} catch (DesignerCommandException e) {
+    		throw new MojoExecutionException("Can't create project library", e);
+    	}
 	}
 	
-	private Collection<String> findLibBuilderResources() throws MojoExecutionException {
+	private Collection<File> findLibBuilderResources() throws MojoExecutionException {
 		return findTibcoBuilderResources(".libbuilder");
 	}
 
