@@ -7,12 +7,21 @@
 			</implementation>
 			<configuration>
 				<phases>
+					<generate-sources>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:generate-sources
+					</generate-sources>
 					<process-sources>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
 					</process-sources>
 					<package>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:package-projlib
 					</package>
+					<install>
+						org.apache.maven.plugins:maven-install-plugin:2.5.1:install
+					</install>
+					<deploy>
+						org.apache.maven.plugins:maven-deploy-plugin:2.8.1:deploy
+					</deploy>
 				</phases>
 			</configuration>
 		</component>
@@ -36,6 +45,9 @@
 			</implementation>
 			<configuration>
 				<phases>
+					<generate-sources>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:generate-sources
+					</generate-sources>
 					<process-sources>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
 					</process-sources>

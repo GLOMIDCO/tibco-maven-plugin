@@ -3,43 +3,54 @@ package com.glomidco.maven.plugins.tibco.command;
 import java.io.File;
 
 public class EarBuilderCommand extends AbstractDesignerCommand {
-
-	public EarBuilderCommand(String workingDir, String uri, String projectDir, String outputEarFile, String pathToAliases) {
+	private File outputEarFile;
+	private String uri;
+	private String pathToAliases;
+	private String traFile;
+	private File projectDir;
+	
+	public EarBuilderCommand(String command, String traFile, File projectDir, String uri,  File outputEarFile, String pathToAliases) {
+		super(command);
+		this.projectDir = projectDir;
+		this.traFile = traFile;
+		this.projectDir = projectDir;
+		this.uri = uri;
+		this.outputEarFile = outputEarFile;
+		this.pathToAliases = pathToAliases;
 	}
 
 	@Override
-	public String getProjectFilename() {
-		// TODO Auto-generated method stub
-		return null;
+	public File getProjectFolder() {
+		return projectDir;
 	}
 
 	@Override
 	public String getUri() {
-		// TODO Auto-generated method stub
-		return null;
+		return uri;
 	}
 
 	@Override
 	public File getOutputFile() {
-		// TODO Auto-generated method stub
-		return null;
+		return outputEarFile;
 	}
 
 	@Override
 	public boolean hideLibraries() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public String getPathToAliases() {
-		// TODO Auto-generated method stub
-		return null;
+		return pathToAliases;
 	}
 
 	@Override
 	public boolean getOverwriteOutputFile() {
-		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public String getPropertiesFile() {
+		return traFile;
 	}
 }

@@ -23,7 +23,6 @@
 	</developers>
 
 	<properties>
-		<mavenVersion>2.2.1</mavenVersion>
 		<mavenPluginVersion>3.1</mavenPluginVersion>
 		<tibco.home>/opt/tibco</tibco.home>
 		<tibco.tra.home>${tibco.home}/tra/5.8</tibco.tra.home>
@@ -35,23 +34,23 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-core</artifactId>
+			<version>3.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-project</artifactId>
-			<version>${mavenVersion}</version>
+			<version>2.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>
-			<version>${mavenVersion}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-core</artifactId>
-			<version>${mavenVersion}</version>
+			<version>3.0.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-descriptor</artifactId>
-			<version>${mavenVersion}</version>
+			<version>2.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.plexus</groupId>
@@ -68,42 +67,6 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-exec</artifactId>
 			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.tibco.tra</groupId>
-			<artifactId>TIBCOdesigner</artifactId>
-			<version>5.8</version>
-			<scope>system</scope>
-			<systemPath>${tibco.tra.home}/lib/TIBCOdesigner.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>com.tibco.tra</groupId>
-			<artifactId>designerpalettes</artifactId>
-			<version>5.8</version>
-			<scope>system</scope>
-			<systemPath>${tibco.tra.home}/lib/palettes/designerpalettes.jar</systemPath>
-		</dependency>
-		<!-- Necessary transitive dependencies for above tibco dependencies  -->
-		<dependency>
-			<groupId>com.tibco.tra</groupId>
-			<artifactId>TIBCOrt</artifactId>
-			<version>5.8</version>
-			<scope>system</scope>
-			<systemPath>${tibco.tra.home}/lib/TIBCOrt.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>com.tibco.tra</groupId>
-			<artifactId>TIBCOxml</artifactId>
-			<version>5.8</version>
-			<scope>system</scope>
-			<systemPath>${tibco.tra.home}/lib/TIBCOxml.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>com.tibco.tra</groupId>
-			<artifactId>TIBqd</artifactId>
-			<version>5.8</version>
-			<scope>system</scope>
-			<systemPath>${tibco.tra.home}/lib/TIBqd.jar</systemPath>
 		</dependency>
 	</dependencies>
 

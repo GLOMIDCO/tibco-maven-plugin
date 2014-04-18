@@ -6,19 +6,23 @@ public class LibBuilderCommand extends AbstractDesignerCommand {
 	private File outputLibFile;
 	private String uri;
 	private String pathToAliases;
+	private String traFile;
+	private File projectDir;
 	
-	public LibBuilderCommand(String projectDir, String uri, File outputLibFile, String pathToAliases) {
-		super();
+	public LibBuilderCommand(String command, String traFile, File projectDir, String uri, File outputLibFile, String pathToAliases) {
+		super(command);
+		this.traFile = traFile;
 		this.pathToAliases = pathToAliases;
 //		addArgument("-p", projectDir);
 		this.outputLibFile = outputLibFile;
 		this.uri = uri;
+		this.projectDir = projectDir;
+
 	}
 
 	@Override
-	public String getProjectFilename() {
-		// TODO Auto-generated method stub
-		return null;
+	public File getProjectFolder() {
+		return projectDir;
 	}
 
 	@Override
@@ -44,6 +48,11 @@ public class LibBuilderCommand extends AbstractDesignerCommand {
 	@Override
 	public boolean getOverwriteOutputFile() {
 		return true;
+	}
+
+	@Override
+	public String getPropertiesFile() {
+		return traFile;
 	}
 
 }
