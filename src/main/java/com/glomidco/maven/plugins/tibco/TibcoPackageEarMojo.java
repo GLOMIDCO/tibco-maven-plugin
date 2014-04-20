@@ -55,7 +55,7 @@ public class TibcoPackageEarMojo extends AbstractPackageMojo {
     	getLog().info("Creating project archive for: " + archiveResource.getName());
     	
     	String uri = archiveResource.getAbsolutePath().substring(getTibcoBuildDirectory().getAbsolutePath().length());
-    	File artifactName = new File(getOutputDirectory(), project.getArtifact().getArtifactId() + "-" + project.getArtifact().getBaseVersion());
+    	File artifactName = new File(getOutputDirectory(), project.getArtifact().getArtifactId() + "-" + project.getArtifact().getBaseVersion() + ".ear");
     	
     	EarBuilderCommand command = new EarBuilderCommand(buildArchiveCommand, buildArchiveTraFile, getTibcoBuildDirectory(), uri, artifactName, null);
     	try {
