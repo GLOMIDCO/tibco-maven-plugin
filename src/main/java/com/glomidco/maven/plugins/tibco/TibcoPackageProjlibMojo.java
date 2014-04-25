@@ -55,6 +55,9 @@ public class TibcoPackageProjlibMojo extends AbstractPackageMojo {
     	getLog().info("Creating project library for: " + libBuilderResource.getAbsolutePath());
     	
     	String uri = libBuilderResource.getAbsolutePath().substring(getTibcoBuildDirectory().getAbsolutePath().length());
+    	// Under windows folders are with '\' separators, while uri should be with '/'
+    	uri = uri.replaceAll("\\\\", "/");
+
     	File artifactName = new File(getOutputDirectory(), project.getArtifact().getArtifactId() + "-" + project.getArtifact().getBaseVersion() + ".projlib");
     	
     	LibBuilderCommand command = new LibBuilderCommand(buildLibraryCommand, buildLibraryTraFile, getTibcoBuildDirectory(), uri, artifactName, null);
