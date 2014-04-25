@@ -49,7 +49,7 @@ public abstract class AbstractPackageMojo extends AbstractMojo {
 	}
 		
 	protected Collection<File> findTibcoBuilderResources(String type) throws MojoExecutionException {
-		File tibcoBuildFolder = new File(getTibcoBuildDirectory() + tibcoBuilderFolder);
+		File tibcoBuildFolder = new File(getTibcoBuildDirectory(), tibcoBuilderFolder);
 
 		Collection<File> buildResources = new ArrayList<File>();
 		if (tibcoBuildFolder.exists() && tibcoBuildFolder.isDirectory()) {
