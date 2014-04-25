@@ -13,6 +13,9 @@
 					<process-sources>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
 					</process-sources>
+					<compile>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:compile
+					</compile>
 					<package>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:package-projlib
 					</package>
@@ -51,6 +54,9 @@
 					<process-sources>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:process-sources
 					</process-sources>
+					<compile>
+						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:compile
+					</compile>
 					<package>
 						com.glomidco.maven.plugins:tibco-maven-plugin:${project-version}:package-ear
 					</package>

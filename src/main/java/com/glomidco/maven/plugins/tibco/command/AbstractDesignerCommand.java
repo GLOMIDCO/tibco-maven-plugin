@@ -52,15 +52,27 @@ abstract class AbstractDesignerCommand implements DesignerCommand {
 		buf.append(command);
 		buf.append(" --propFile ");
 		buf.append(getPropertiesFile());
-		if (getPathToAliases() != null) {
+		String pathToAliases = getPathToAliases();
+		if (pathToAliases != null) {
 			buf.append(" -a ");
-			buf.append(getPathToAliases());
+			buf.append(pathToAliases);
 		}
-		buf.append(" -lib ");
-		buf.append(getUri());
-		buf.append(" -o ");
-		buf.append(getOutputFile());
-		buf.append(" -p ");
+		String uri = getUri();
+		if (uri != null) {
+			buf.append(" -lib ");
+			buf.append(uri);
+		}
+		File outputFile = getOutputFile();
+		if (outputFile != null) {
+			buf.append(" -o ");
+			buf.append(getOutputFile());
+		}
+		// TODO: cleanup. Don't like this instanceof construction
+		if (this instanceof ValidateProjectCommand) {
+			buf.append(" ");
+		} else {
+			buf.append(" -p ");
+		}
 		buf.append(getProjectFolder());
 		if (getOverwriteOutputFile()) {
 			buf.append(" -x ");

@@ -65,8 +65,8 @@ public class TibcoGenerateSourcesMojo extends AbstractMojo {
     
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
+		generateFileAliases();
 		if (project.getDependencies().size() > 0) {
-			generateFileAliases();
 			generateDotDesignTimeLibs();
 			updateDesignerPrefs();
 		}
