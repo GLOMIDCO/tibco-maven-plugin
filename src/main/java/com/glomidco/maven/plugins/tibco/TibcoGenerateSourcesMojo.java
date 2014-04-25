@@ -56,6 +56,13 @@ public class TibcoGenerateSourcesMojo extends AbstractMojo {
      */
     private File designerPrefsFile;
     
+    /**
+     * Location of the fileAliases
+     * 
+     * @parameter default-value="${project.build.directory}/fileAliases.properties"
+     */
+	private File aliasesFile;
+    
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		if (project.getDependencies().size() > 0) {
@@ -72,8 +79,6 @@ public class TibcoGenerateSourcesMojo extends AbstractMojo {
 	 * @throws MojoExecutionException
 	 */
 	private void generateFileAliases() throws MojoExecutionException {
-		File aliasesFile = new File(outputDirectory, "fileAliases.properties");
-
 		if (!outputDirectory.exists()) {
 			FileUtils.mkdir(outputDirectory.getAbsolutePath());
 		}
