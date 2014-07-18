@@ -9,7 +9,7 @@
 
 	<groupId>com.glomidco.maven.plugins</groupId>
 	<artifactId>tibco-maven-plugin</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Tibco BW maven plugin</name>
