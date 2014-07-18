@@ -66,6 +66,8 @@ public class TibcoPackageEarMojo extends AbstractPackageMojo {
     	} catch (DesignerCommandException e) {
     		throw new MojoExecutionException("Can't create project archive", e);
     	}
+    	
+    	project.getArtifact().setFile(artifactName);
 	}
 	
 	private Collection<File> findArchiveResources() throws MojoExecutionException {
