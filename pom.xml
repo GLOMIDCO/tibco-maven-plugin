@@ -114,8 +114,8 @@
 		</plugin> </plugins> </reporting -->
 
 	<scm>
-		<connection>scm:git:https://github.com/GLOMIDCO/tibco-maven-plugin.git</connection>
-		<developerConnection>scm:git:https://github.com/GLOMIDCO/tibco-maven-plugin.git</developerConnection>
+		<connection>scm:git:git@github.com:GLOMIDCO/tibco-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:GLOMIDCO/tibco-maven-plugin.git</developerConnection>
 		<url>https://github.com/GLOMIDCO/tibco-maven-plugin</url>
 		<tag>tibco-maven-plugin-1.0.0</tag>
 	</scm>
