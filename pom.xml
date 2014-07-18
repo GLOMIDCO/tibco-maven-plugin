@@ -9,7 +9,7 @@
 
 	<groupId>com.glomidco.maven.plugins</groupId>
 	<artifactId>tibco-maven-plugin</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>Tibco BW maven plugin</name>
@@ -117,6 +117,6 @@
 		<connection>scm:git:git@github.com:GLOMIDCO/tibco-maven-plugin.git</connection>
 		<developerConnection>scm:git:git@github.com:GLOMIDCO/tibco-maven-plugin.git</developerConnection>
 		<url>https://github.com/GLOMIDCO/tibco-maven-plugin</url>
-		<tag>HEAD</tag>
+		<tag>tibco-maven-plugin-1.0.3</tag>
 	</scm>
 </project>
